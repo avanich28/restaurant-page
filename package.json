@@ -1,0 +1,20 @@
+{
+  "name": "restaurant-page",
+  "version": "1.0.0",
+  "description": "This project mainly use DOM manipulation and ES6 modules to dynamically render a restaurant page. The bundling tool used in this project is Webpack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
