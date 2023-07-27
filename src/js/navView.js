@@ -44,6 +44,7 @@ class NavView extends View {
   _setBtnEffect() {
     const self = this;
     this._buttons.forEach(el => {
+      el.style.transition = self.transitionValue;
       el.addEventListener('mouseover', function () {
         el.style.transform = 'scale(1.1)';
         el.style.fontWeight = 'bold';

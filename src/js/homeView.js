@@ -63,9 +63,9 @@ class HomeView extends MainView {
   }
 
   _addBtnEffect() {
-    const self = this;
+    this._btnViewMenu.style.transition = this.transitionValue;
     this._btnViewMenu.addEventListener('mouseover', function () {
-      this.style.transform = 'scale(1.08)';
+      this.style.transform = 'scale(1.05)';
     });
 
     this._btnViewMenu.addEventListener('mouseleave', function () {
