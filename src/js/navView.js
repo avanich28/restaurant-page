@@ -14,6 +14,10 @@ class NavView extends View {
     return this._buttons[i];
   }
 
+  sendClearBtnLine() {
+    return this._clearBtnLine.bind(this);
+  }
+
   _setNav() {
     this._navEl.style.flex = 'none';
 
@@ -65,6 +69,10 @@ class NavView extends View {
         el.style.transform = 'scale(1.1)';
       });
     });
+  }
+
+  _clearBtnLine() {
+    this._buttons.forEach(el => (el.style.textDecoration = ''));
   }
 }
 

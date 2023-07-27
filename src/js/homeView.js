@@ -11,13 +11,18 @@ class HomeView extends MainView {
     this._generateContent();
   }
 
-  addHandlerClick(btn) {
-    btn.addEventListener('click', this.render.bind(this));
+  addHandlerClick(btn, clearBtnLineFunc) {
+    btn.addEventListener(
+      'click',
+      this.render.bind(this, btn, clearBtnLineFunc)
+    );
   }
 
-  addHandlerClickViewMenu(func) {
-    console.log(this);
-    this._btnViewMenu.addEventListener('click', func);
+  addHandlerClickViewMenu(menuObj, btn, clearBtnLineFunc) {
+    this._btnViewMenu.addEventListener(
+      'click',
+      this.render.bind(menuObj, btn, clearBtnLineFunc)
+    );
   }
 
   _generateContent() {

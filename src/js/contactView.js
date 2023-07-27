@@ -9,8 +9,8 @@ class ContactView extends MainView {
     this._generateContent();
   }
 
-  addHandlerClick(btn) {
-    btn.addEventListener('click', this.render.bind(this));
+  addHandlerClick(btn, clearBtnLineFunc) {
+    btn.addEventListener('click', this.render.bind(this, btn, clearBtnLineFunc));
   }
 
   _generateContent() {

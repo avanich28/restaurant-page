@@ -10,7 +10,9 @@ export default class MainView extends View {
     this._setMain();
   }
 
-  render() {
+  render(btn, clearBtnLineFunc) {
+    clearBtnLineFunc();
+    btn.style.textDecoration = 'underline overline';
     this.contentEl.innerHTML = '';
     this.contentEl.appendChild(this._container);
   }

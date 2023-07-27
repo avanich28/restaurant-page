@@ -5,10 +5,16 @@ import menuView from './menuView.js';
 import contactView from './contactView.js';
 
 const init = function () {
-  homeView.render();
-  homeView.addHandlerClick(navView.sendBtn(0));
-  menuView.addHandlerClick(navView.sendBtn(1));
-  contactView.addHandlerClick(navView.sendBtn(2));
-  homeView.addHandlerClickViewMenu(menuView.render.bind(menuView));
+  homeView.render(navView.sendBtn(0), navView.sendClearBtnLine());
+
+  [homeView, menuView, contactView].forEach((el, i) =>
+    el.addHandlerClick(navView.sendBtn(i), navView.sendClearBtnLine())
+  );
+
+  homeView.addHandlerClickViewMenu(
+    menuView,
+    navView.sendBtn(1),
+    navView.sendClearBtnLine()
+  );
 };
 init();
