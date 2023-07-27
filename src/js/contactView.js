@@ -9,8 +9,8 @@ class ContactView extends MainView {
     this._generateContent();
   }
 
-  addHandlerClick(btn, clearBtnLineFunc) {
-    btn.addEventListener('click', this.render.bind(this, btn, clearBtnLineFunc));
+  addHandlerClick(btn, btnArr) {
+    btn.addEventListener('click', this.render.bind(this, btn, btnArr));
   }
 
   _generateContent() {
@@ -21,7 +21,6 @@ class ContactView extends MainView {
     this._generateAddress();
 
     this._cards.forEach(card => this._container.appendChild(card)); // output
-    // this.contentEl.appendChild(this._container);
   }
 
   _setContainer() {
@@ -44,8 +43,8 @@ class ContactView extends MainView {
     }
   }
 
-  _addCardChild(arr, i) {
-    arr.forEach(el => this._cards[i].appendChild(el));
+  _addTextContent(el, text) {
+    el.forEach((el, i) => (el.textContent = text[i]));
   }
 
   _convertToBold(...arr) {
@@ -56,6 +55,10 @@ class ContactView extends MainView {
     el.style.marginBottom = '15px';
   }
 
+  _addCardChild(arr, i) {
+    arr.forEach(el => this._cards[i].appendChild(el));
+  }
+
   _generateOpenClose() {
     const head = this.createDiv();
     const day = this.createPara();
@@ -63,11 +66,14 @@ class ContactView extends MainView {
     const weekend = this.createPara();
     const hourWeekend = this.createPara();
 
-    head.textContent = 'HOURS';
-    day.textContent = 'Monday - Friday';
-    hour.textContent = '9am - 7pm';
-    weekend.textContent = 'Saturday - Sunday';
-    hourWeekend.textContent = '10am - 6pm';
+    const text = [
+      'HOURS',
+      'Monday - Friday',
+      '9am - 7pm',
+      'Saturday - Sunday',
+      '10am - 6pm',
+    ];
+    this._addTextContent([head, day, hour, weekend, hourWeekend], text);
 
     this._convertToBold(head, day, weekend);
     this._setMarginBottom(head);
@@ -80,8 +86,8 @@ class ContactView extends MainView {
     const head = this.createDiv();
     const tel = this.createPara();
 
-    head.textContent = 'CALL US';
-    tel.textContent = '(66) 98-765-4321';
+    const text = ['CALL US', '(66) 98-765-4321'];
+    this._addTextContent([head, tel], text);
 
     this._convertToBold(head);
     this._setMarginBottom(head);
@@ -96,11 +102,14 @@ class ContactView extends MainView {
     const para3 = this.createPara();
     const para4 = this.createPara();
 
-    head.textContent = 'FIND US';
-    para1.textContent = '182 Chakrapong Road';
-    para2.textContent = 'Chana Songkram';
-    para3.textContent = 'Phra Nakhon,';
-    para4.textContent = 'Bangkok, Thailand';
+    const text = [
+      'FIND US',
+      '182 Chakrapong Road',
+      'Chana Songkram',
+      'Phra Nakhon,',
+      'Bangkok, Thailand',
+    ];
+    this._addTextContent([head, para1, para2, para3, para4], text);
 
     this._convertToBold(head);
     this._setMarginBottom(head);

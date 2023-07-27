@@ -10,8 +10,8 @@ export default class MainView extends View {
     this._setMain();
   }
 
-  render(btn, clearBtnLineFunc) {
-    clearBtnLineFunc();
+  render(btn, btnArr) {
+    btnArr.forEach(btn => (btn.style.textDecoration = ''));
     btn.style.textDecoration = 'underline overline';
     this.contentEl.innerHTML = '';
     this.contentEl.appendChild(this._container);

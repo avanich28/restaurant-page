@@ -58,11 +58,8 @@ class MenuView extends MainView {
     this._generateContent();
   }
 
-  addHandlerClick(btn, clearBtnLineFunc) {
-    btn.addEventListener(
-      'click',
-      this.render.bind(this, btn, clearBtnLineFunc)
-    );
+  addHandlerClick(btn, btnArr) {
+    btn.addEventListener('click', this.render.bind(this, btn, btnArr));
   }
 
   _generateContent() {

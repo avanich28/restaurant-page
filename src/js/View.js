@@ -17,6 +17,10 @@ export default class View {
     return document.createElement('p');
   }
 
+  createBtn() {
+    return document.createElement('button');
+  }
+
   _setDisplay() {
     this.bodyEl.style.height = '100vh';
     this.bodyEl.style.display = 'flex';

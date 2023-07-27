@@ -4,24 +4,21 @@ class HomeView extends MainView {
   _container = this.createDiv();
   _logo = this.createDiv();
   _msg = this.createPara();
-  _btnViewMenu = document.createElement('button');
+  _btnViewMenu = this.createBtn();
 
   constructor() {
     super();
     this._generateContent();
   }
 
-  addHandlerClick(btn, clearBtnLineFunc) {
-    btn.addEventListener(
-      'click',
-      this.render.bind(this, btn, clearBtnLineFunc)
-    );
+  addHandlerClick(btn, btnArr) {
+    btn.addEventListener('click', this.render.bind(this, btn, btnArr));
   }
 
-  addHandlerClickViewMenu(menuObj, btn, clearBtnLineFunc) {
+  addHandlerClickViewMenu(menuObj, btn, btnArr) {
     this._btnViewMenu.addEventListener(
       'click',
-      this.render.bind(menuObj, btn, clearBtnLineFunc)
+      this.render.bind(menuObj, btn, btnArr)
     );
   }
 

@@ -1,7 +1,7 @@
 import View from './View.js';
 
 class NavView extends View {
-  _navEl = document.createElement('div');
+  _navEl = this.createDiv();
   _buttons = ['homeBtn', 'menuBtn', 'contactBtn'];
 
   constructor() {
@@ -14,8 +14,9 @@ class NavView extends View {
     return this._buttons[i];
   }
 
-  sendClearBtnLine() {
-    return this._clearBtnLine.bind(this);
+  sendBtnArr() {
+    // Prevent mutate by using slice
+    return this._buttons.slice(0);
   }
 
   _setNav() {
@@ -23,7 +24,7 @@ class NavView extends View {
 
     for (let i = 0; i < this._buttons.length; i++) {
       const str = this._buttons[i];
-      this._buttons[i] = document.createElement('button');
+      this._buttons[i] = this.createBtn();
       this._buttons[i].textContent = str.split('B')[0].toUpperCase();
     }
 
@@ -49,30 +50,22 @@ class NavView extends View {
     const self = this;
     this._buttons.forEach(el => {
       el.style.transition = self.transitionValue;
-      el.addEventListener('mouseover', function () {
+      el.addEventListener('mouseover', () => {
         el.style.transform = 'scale(1.1)';
         el.style.fontWeight = 'bold';
         el.style.color = self.fontColor;
       });
 
-      el.addEventListener('mouseleave', function () {
+      el.addEventListener('mouseleave', () => {
         el.style.transform = '';
         el.style.fontWeight = '';
         el.style.color = '';
       });
 
-      el.addEventListener('mousedown', function () {
-        el.style.transform = 'initial';
-      });
+      el.addEventListener('mousedown', () => (el.style.transform = 'initial'));
 
-      el.addEventListener('mouseup', function () {
-        el.style.transform = 'scale(1.1)';
-      });
+      el.addEventListener('mouseup', () => (el.style.transform = 'scale(1.1)'));
     });
-  }
-
-  _clearBtnLine() {
-    this._buttons.forEach(el => (el.style.textDecoration = ''));
   }
 }
 
