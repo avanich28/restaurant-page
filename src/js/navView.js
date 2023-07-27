@@ -56,6 +56,14 @@ class NavView extends View {
         el.style.fontWeight = '';
         el.style.color = '';
       });
+
+      el.addEventListener('mousedown', function () {
+        el.style.transform = 'initial';
+      });
+
+      el.addEventListener('mouseup', function () {
+        el.style.transform = 'scale(1.1)';
+      });
     });
   }
 }
