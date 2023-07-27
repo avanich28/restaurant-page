@@ -7,9 +7,12 @@ export default class View {
     this._setDisplay();
   }
 
-  render() {
-    this.contentEl.innerHTML = '';
-    this._generateContent();
+  createDiv() {
+    return document.createElement('div');
+  }
+
+  createPara() {
+    return document.createElement('p');
   }
 
   _setDisplay() {

@@ -10,6 +10,11 @@ export default class MainView extends View {
     this._setMain();
   }
 
+  render() {
+    this.contentEl.innerHTML = '';
+    this.contentEl.appendChild(this._container);
+  }
+
   _setBackground() {
     this.contentEl.style.background = `url("${backgroundImage}") no-repeat`;
     this.contentEl.style.backgroundSize = 'cover';

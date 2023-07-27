@@ -9,7 +9,7 @@ import bagel from '../img/bagel.jpg';
 import boule from '../img/boule.jpg';
 
 class MenuView extends MainView {
-  _container = document.createElement('div');
+  _container = this.createDiv();
   _menu = [
     {
       img: whiteBread,
@@ -59,15 +59,18 @@ class MenuView extends MainView {
   }
 
   _generateContent() {
+    this._setContainer();
+    this._menu.forEach(menu => this._generateContentMenu(menu));
+    // this.contentEl.appendChild(this._container);
+  }
+
+  _setContainer() {
     this._container.style.height = '100%';
     this._container.style.width = '100%';
     this._container.style.display = 'grid';
     this._container.style.gridTemplateColumns =
       'repeat(auto-fill, minmax(230px, 1fr))';
     this._container.style.gap = '20px';
-
-    this._menu.forEach(menu => this._generateContentMenu(menu));
-    this.contentEl.appendChild(this._container);
   }
 
   _createImage(img, name) {
@@ -82,7 +85,7 @@ class MenuView extends MainView {
   }
 
   _createPrice(cost) {
-    const price = document.createElement('div');
+    const price = this.createDiv();
     price.textContent = `฿${cost}`;
     price.style.fontSize = '20px';
     price.style.fontWeight = 'bold';
@@ -90,7 +93,7 @@ class MenuView extends MainView {
   }
 
   _createName(menu) {
-    const name = document.createElement('div');
+    const name = this.createDiv();
     name.textContent = menu.split('-').join(' ').toUpperCase();
     name.style.fontWeight = 'bold';
     name.style.color = '#b91c1c';
@@ -98,19 +101,19 @@ class MenuView extends MainView {
   }
 
   _createDetail() {
-    const detail = document.createElement('p');
+    const detail = this.createPara();
     detail.textContent = 'Straight from our oven to you.';
     return detail;
   }
 
   _generateContentMenu(data) {
-    const card = document.createElement('div');
+    const card = this.createDiv();
     card.style.background = 'white';
     card.style.padding = '18px 0';
     card.style.display = 'flex';
     card.style.flexDirection = 'column';
     card.style.alignItems = 'center';
-    card.style.gap = '10px';
+    card.style.gap = '7px';
 
     [
       this._createImage(data.img, data.name),
@@ -119,7 +122,7 @@ class MenuView extends MainView {
       this._createDetail(),
     ].forEach(el => card.insertAdjacentElement('beforeend', el));
 
-    this._container.appendChild(card);
+    this._container.appendChild(card); // output
   }
 }
 

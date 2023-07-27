@@ -3,3 +3,4 @@ import navView from './navView.js';
 import footerView from './footerView.js';
 import homeView from './homeView.js';
 import menuView from './menuView.js';
+import contactView from './contactView.js';

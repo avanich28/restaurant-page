@@ -1,13 +1,14 @@
 import MainView from './mainView.js';
 
 class HomeView extends MainView {
-  _logo = document.createElement('div');
-  _msg = document.createElement('p');
+  _container = this.createDiv();
+  _logo = this.createDiv();
+  _msg = this.createPara();
   _btnViewMenu = document.createElement('button');
 
   constructor() {
     super();
-    // this._generateContent();
+    this._generateContent();
   }
 
   addHandlerClick(handler) {
@@ -15,6 +16,25 @@ class HomeView extends MainView {
   }
 
   _generateContent() {
+    this._setContainer();
+    this._generateLogoMsg();
+    this._generateButton();
+
+    [this._logo, this._msg, this._btnViewMenu].forEach(
+      el => this._container.appendChild(el) // output
+    );
+    // this.contentEl.appendChild(this._container);
+  }
+
+  _setContainer() {
+    this._container.style.display = 'flex';
+    this._container.style.flexDirection = 'column';
+    this._container.style.justifyContent = 'center';
+    this._container.style.alignItems = 'center';
+    this._container.style.gap = '18px';
+  }
+
+  _generateLogoMsg() {
     [this._logo, this._msg].forEach(el => {
       el.style.color = 'white';
       el.style.textAlign = 'center';
@@ -26,16 +46,14 @@ class HomeView extends MainView {
 
     this._msg.textContent =
       'We are happy to serve you freshly baked bread everyday.';
+  }
 
+  _generateButton() {
     this._btnViewMenu.textContent = 'ORDER NOW';
     this._btnViewMenu.style.border = 'none';
     this._btnViewMenu.style.borderRadius = '5px';
     this._btnViewMenu.style.background = 'white';
     this._btnViewMenu.style.padding = '10px 30px';
-
-    [this._logo, this._msg, this._btnViewMenu].forEach(el =>
-      this.contentEl.insertAdjacentElement('beforeend', el)
-    );
   }
 }
 
