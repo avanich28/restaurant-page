@@ -71,7 +71,7 @@ class ContactView extends MainView {
 
     this._convertToBold(head, day, weekend);
     this._setMarginBottom(head);
-    [day, weekend].forEach(el => (el.style.color = '#b91c1c'));
+    [day, weekend].forEach(el => (el.style.color = this.fontColor));
 
     this._addCardChild([head, day, hour, weekend, hourWeekend], 0);
   }

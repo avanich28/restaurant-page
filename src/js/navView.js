@@ -7,6 +7,7 @@ class NavView extends View {
   constructor() {
     super();
     this._setNav();
+    this._setBtnEffect();
   }
 
   sendBtn(i) {
@@ -38,6 +39,23 @@ class NavView extends View {
 
     this.bodyEl.insertAdjacentElement('afterbegin', this._navEl);
     this._buttons.forEach(btn => this._navEl.appendChild(btn));
+  }
+
+  _setBtnEffect() {
+    const self = this;
+    this._buttons.forEach(el => {
+      el.addEventListener('mouseover', function () {
+        el.style.transform = 'scale(1.1)';
+        el.style.fontWeight = 'bold';
+        el.style.color = self.fontColor;
+      });
+
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+        el.style.fontWeight = '';
+        el.style.color = '';
+      });
+    });
   }
 }
 

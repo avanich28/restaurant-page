@@ -99,7 +99,7 @@ class MenuView extends MainView {
     const name = this.createDiv();
     name.textContent = menu.split('-').join(' ').toUpperCase();
     name.style.fontWeight = 'bold';
-    name.style.color = '#b91c1c';
+    name.style.color = this.fontColor;
     return name;
   }
 

@@ -28,6 +28,8 @@ class HomeView extends MainView {
     [this._logo, this._msg, this._btnViewMenu].forEach(
       el => this._container.appendChild(el) // output
     );
+
+    this._addBtnEffect();
   }
 
   _setContainer() {
@@ -58,6 +60,17 @@ class HomeView extends MainView {
     this._btnViewMenu.style.borderRadius = '5px';
     this._btnViewMenu.style.background = 'white';
     this._btnViewMenu.style.padding = '10px 30px';
+  }
+
+  _addBtnEffect() {
+    const self = this;
+    this._btnViewMenu.addEventListener('mouseover', function () {
+      this.style.transform = 'scale(1.08)';
+    });
+
+    this._btnViewMenu.addEventListener('mouseleave', function () {
+      this.style.transform = '';
+    });
   }
 }
 

@@ -2,6 +2,7 @@ import '../style.css';
 
 export default class View {
   bodyEl = document.body;
+  fontColor = '#b91c1c';
 
   constructor() {
     this._setDisplay();
