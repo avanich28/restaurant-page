@@ -9,6 +9,10 @@ class NavView extends View {
     this._setNav();
   }
 
+  sendBtn(i) {
+    return this._buttons[i];
+  }
+
   _setNav() {
     this._navEl.style.flex = 'none';
 

@@ -11,8 +11,8 @@ class HomeView extends MainView {
     this._generateContent();
   }
 
-  addHandlerClick(handler) {
-    handler();
+  addHandlerClick(btn) {
+    btn.addEventListener('click', this.render.bind(this));
   }
 
   _generateContent() {

@@ -58,6 +58,10 @@ class MenuView extends MainView {
     this._generateContent();
   }
 
+  addHandlerClick(btn) {
+    btn.addEventListener('click', this.render.bind(this));
+  }
+
   _generateContent() {
     this._setContainer();
     this._menu.forEach(menu => this._generateContentMenu(menu));
