@@ -15,15 +15,19 @@ class HomeView extends MainView {
     btn.addEventListener('click', this.render.bind(this));
   }
 
+  addHandlerClickViewMenu(func) {
+    console.log(this);
+    this._btnViewMenu.addEventListener('click', func);
+  }
+
   _generateContent() {
     this._setContainer();
-    this._generateLogoMsg();
+    this._generateLogoAndMsg();
     this._generateButton();
 
     [this._logo, this._msg, this._btnViewMenu].forEach(
       el => this._container.appendChild(el) // output
     );
-    // this.contentEl.appendChild(this._container);
   }
 
   _setContainer() {
@@ -34,7 +38,7 @@ class HomeView extends MainView {
     this._container.style.gap = '18px';
   }
 
-  _generateLogoMsg() {
+  _generateLogoAndMsg() {
     [this._logo, this._msg].forEach(el => {
       el.style.color = 'white';
       el.style.textAlign = 'center';

@@ -65,7 +65,6 @@ class MenuView extends MainView {
   _generateContent() {
     this._setContainer();
     this._menu.forEach(menu => this._generateContentMenu(menu));
-    // this.contentEl.appendChild(this._container);
   }
 
   _setContainer() {
@@ -107,6 +106,7 @@ class MenuView extends MainView {
   _createDetail() {
     const detail = this.createPara();
     detail.textContent = 'Straight from our oven to you.';
+    detail.style.fontSize = '0.8rem';
     return detail;
   }
 

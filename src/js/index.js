@@ -9,5 +9,6 @@ const init = function () {
   homeView.addHandlerClick(navView.sendBtn(0));
   menuView.addHandlerClick(navView.sendBtn(1));
   contactView.addHandlerClick(navView.sendBtn(2));
+  homeView.addHandlerClickViewMenu(menuView.render.bind(menuView));
 };
 init();
