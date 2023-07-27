@@ -1,13 +1,13 @@
-import View from './View.js';
+import MainView from './mainView.js';
 
-class HomeView extends View {
+class HomeView extends MainView {
   _logo = document.createElement('div');
   _msg = document.createElement('p');
   _btnViewMenu = document.createElement('button');
 
   constructor() {
     super();
-    this._generateContent();
+    // this._generateContent();
   }
 
   addHandlerClick(handler) {
@@ -20,10 +20,9 @@ class HomeView extends View {
       el.style.textAlign = 'center';
     });
 
-    this._logo.textContent = 'Bread Story Bakery';
-    this._logo.style.margin = '20vh 0 0 0';
     this._logo.style.fontFamily = "'Ms Madi', cursive";
     this._logo.style.fontSize = '80px';
+    this._logo.textContent = 'Bread Story Bakery';
 
     this._msg.textContent =
       'We are happy to serve you freshly baked bread everyday.';
