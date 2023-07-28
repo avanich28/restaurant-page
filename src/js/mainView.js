@@ -1,5 +1,5 @@
 import View from './View.js';
-import backgroundImage from '../img/baker.jpeg';
+import backgroundImage from '../img/baker.jpg';
 
 export default class MainView extends View {
   contentEl = document.querySelector('#content');

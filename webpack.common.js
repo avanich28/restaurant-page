@@ -1,23 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  mode: 'development',
   entry: {
-    index: './src/js/index.js',
+    bundle: './src/js/index.js',
   },
-  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Restaurant Page',
       filename: 'index.html',
       template: './src/template.html',
     }),
+    new BundleAnalyzerPlugin(),
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name][contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: '[name][ext]',
   },
   module: {
     rules: [
@@ -30,8 +32,14 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)/i,
-        type: 'asset/resource',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
     ],
   },

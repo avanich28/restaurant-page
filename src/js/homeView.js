@@ -71,7 +71,11 @@ class HomeView extends MainView {
     });
 
     this._btnViewMenu.addEventListener('mouseleave', function () {
-      this.style.transform = '';
+      this.style.transform = 'scale(1)';
+    });
+
+    this._btnViewMenu.addEventListener('mousedown', function () {
+      this.style.transform = 'scale(1)';
     });
   }
 }
