@@ -40,6 +40,7 @@ class NavView extends View {
       btn.style.border = 'none';
       btn.style.background = 'none';
       btn.style.fontSize = '1.05rem';
+      btn.style.color = this.btnColor;
     });
 
     this.bodyEl.insertAdjacentElement('afterbegin', this._navEl);

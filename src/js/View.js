@@ -3,6 +3,7 @@ import '../style.css';
 export default class View {
   bodyEl = document.body;
   fontColor = '#b91c1c';
+  btnColor = 'black'
   transitionValue = 'all 0.2s ease-in-out';
 
   constructor() {

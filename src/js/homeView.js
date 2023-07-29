@@ -61,6 +61,7 @@ class HomeView extends MainView {
     this._btnViewMenu.style.border = 'none';
     this._btnViewMenu.style.borderRadius = '5px';
     this._btnViewMenu.style.background = 'white';
+    this._btnViewMenu.style.color = this.btnColor;
     this._btnViewMenu.style.padding = '10px 30px';
   }
 
